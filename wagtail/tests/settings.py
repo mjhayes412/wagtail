@@ -4,25 +4,22 @@ import os
 
 import django
 
-DEBUG = False
+DEBUG = True
 WAGTAIL_ROOT = os.path.dirname(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(WAGTAIL_ROOT, 'tests', 'test-static')
 MEDIA_ROOT = os.path.join(WAGTAIL_ROOT, 'tests', 'test-media')
 MEDIA_URL = '/media/'
 
-TIME_ZONE = 'Asia/Tokyo'
+TIME_ZONE = 'UTC'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('DATABASE_NAME', 'wagtail'),
-        'USER': os.environ.get('DATABASE_USER', None),
-        'PASSWORD': os.environ.get('DATABASE_PASS', None),
-        'HOST': os.environ.get('DATABASE_HOST', None),
-
-        'TEST': {
-            'NAME': os.environ.get('DATABASE_NAME', None),
-        }
+        'USER': os.environ.get('DATABASE_USER', 'root'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', ''),
+        'HOST': os.environ.get('DATABASE_HOST', 'localhost'),
+        'PORT': '3306',
     }
 }
 

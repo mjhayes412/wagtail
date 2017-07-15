@@ -8,10 +8,12 @@ from django.core.management import ManagementUtility
 
 
 def create_project(parser, options, args):
+
     # Validate args
     if len(args) < 2:
         parser.error("Please specify a name for your Wagtail installation")
     elif len(args) > 3:
+        print(args)
         parser.error("Too many arguments")
 
     project_name = args[1]
